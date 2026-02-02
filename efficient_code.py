@@ -8,10 +8,10 @@ Tested using:
     OpenMPI
 """
 #import the necessary functions 
-import mpi4py as MPI # pylint: disable=no-name-in-module
+from mpi4py as MPI # pylint: disable=no-name-in-module
 import numpy as np
 # stating defining variables for the main features of MPI including the main communicator
-comm = MPI.COMM_WORLD()
+comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 nproc = comm.Get_size()
 
