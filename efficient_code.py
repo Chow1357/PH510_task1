@@ -29,3 +29,9 @@ local_n = rank * base(1 if rank < rem else 0)
 start = rank * base + min(rank, rem) 
 end = start + local_n 
 
+#vectorised local integral
+i = np.arange(start, end, dtype=np.float64)
+x = (x + 0.5) * Delta 
+local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64) 
+
+
