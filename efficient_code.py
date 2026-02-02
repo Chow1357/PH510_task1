@@ -37,7 +37,7 @@ end = start + local_n
 
 #vectorised local integral
 i = np.arange(start, end, dtype=np.float64)
-x = (x + 0.5) * DELTA
+x = (i + 0.5) * DELTA
 local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64)
 #combines all the partial results in each rank using the SUM operation
 #and then returns this result only to rank 0
