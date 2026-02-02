@@ -8,7 +8,7 @@ Tested using:
     OpenMPI
 """
 #import the necessary functions 
-from mpi4py as MPI # pylint: disable=no-name-in-module
+from mpi4py import MPI # pylint: disable=no-name-in-module
 import numpy as np
 # stating defining variables for the main features of MPI including the main communicator
 comm = MPI.COMM_WORLD
@@ -30,7 +30,7 @@ end = start + local_n
 
 #vectorised local integral
 i = np.arange(start, end, dtype=np.float64)
-x = (x + 0.5) * Delta
+x = (x + 0.5) * DELTA
 local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64)
 #combines all the partial results in each rank using the SUM operation and then returns this result only to rank 0
 I = comm.reduce(local_sum, op=MPI.SUM, root=0)
