@@ -8,33 +8,31 @@ Tested using:
     OpenMPI
 """
 #import the necessary functions 
-import mpi4py as MPI 
-import numpy as np 
-
-# stating defining variables for the main features of MPI including the main communicator 
+import mpi4py as MPI # pylint: disable=no-name-in-module
+import numpy as np
+# stating defining variables for the main features of MPI including the main communicator
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
-nproc = comm.Get_size() 
+nproc = comm.Get_size()
 
 # number of sample points in the integration and defining the width of each sample point between 0 and 1
 N = 100000000
-DELTA = 1.0 / N 
+DELTA = 1.0 / N
 
-#sharing the workload, number of integration points, equally between the cores (nproc = 16) 
-min_jobs = N // nproc 
-#if N cannot be divided by nproc evenly we must deal witht he remaining intgerations (Ns)and distribute them to between the cores
+#sharing the workload, number of integration points, equally between the cores (nproc = 16)
+min_jobs = N // nproc
+#if N cannot be divided by nproc evenly we must deal witht he remaining intgerations (Ns) and distribute them to between the cores
 int_remain = N % nproc
-local_n = rank * min_jobs(1 if rank < int_remain else 0) 
+local_n = rank * min_jobs(1 if rank < int_remain else 0)
 #ensures each MPI process indexes at the correct sampling point so each is only sampled once and then stops at the correct place
-start = rank * min_jobs + min(rank, int_remain) 
-end = start + local_n 
+start = rank * min_jobs + min(rank, int_remain)
+end = start + local_n
 
 #vectorised local integral
 i = np.arange(start, end, dtype=np.float64)
-x = (x + 0.5) * Delta 
-local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64) 
-
-# combines all the partial results in each rank using the SUM operation and then returns this result only to rank 0  
+x = (x + 0.5) * Delta
+local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64)
+#combines all the partial results in each rank using the SUM operation and then returns this result only to rank 0
 I = comm.reduce(local_sum, op=MPI.SUM, root=0)
 #prints the final result in rank 0 to 10 decimal places
 if rank == 0:
