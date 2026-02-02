@@ -22,6 +22,10 @@ DELTA = 1.0 / N
 
 #sharing the workload, number of integration points, equally between the cores (nproc = 16) 
 min_jobs = N // nproc 
-
 #if N cannot be divided by nproc evenly we must deal witht he remaining intgerations (Ns)and distribute them to between the cores
 int_remain = N % nproc
+local_n = rank * base(1 if rank < rem else 0) 
+#ensures each MPI process indexes at the correct sampling point so each is only sampled once and then stops at the correct place
+start = rank * base + min(rank, rem) 
+end = start + local_n 
+
