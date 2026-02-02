@@ -1,6 +1,6 @@
 #!/opt/software/anaconda/python-3.10.9/bin/python
 """
-approximation of pi using th emid point rule for a definite integral 
+code that approximates pi using the mid point rule for a definite integral, optimised for a parallel environment
 
 Tested using: 
     Python 3.10.9
@@ -39,5 +39,3 @@ I = comm.reduce(local_sum, op=MPI.SUM, root=0)
 #prints the final result in rank 0 to 10 decimal places
 if rank == 0:
     print(f"integral {I:.10f}")
-
-
