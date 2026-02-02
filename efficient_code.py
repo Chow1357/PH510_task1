@@ -34,4 +34,10 @@ i = np.arange(start, end, dtype=np.float64)
 x = (x + 0.5) * Delta 
 local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64) 
 
+# combines all the partial results in each rank using the SUM operation and then returns this result only to rank 0  
+I = comm.reduce(local_sum, op=MPI.SUM, root=0)
+#prints the final result in rank 0 to 10 decimal places
+if rank == 0:
+    print(f"integral {I:.10f}")
+
 
