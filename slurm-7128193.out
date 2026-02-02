@@ -1,0 +1,197 @@
+Loading mpi version 2021.6.0
+===== Running with range MPI ranks =====
+[mpiexec@wee20.hpc.strath.ac.uk] i_np_fn (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec_params.h:942): process count should be > 0
+[mpiexec@wee20.hpc.strath.ac.uk] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:83): match handler returned error
+[mpiexec@wee20.hpc.strath.ac.uk] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@wee20.hpc.strath.ac.uk] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1359): error parsing input array
+[mpiexec@wee20.hpc.strath.ac.uk] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1783): error parsing parameters
+
+ Performance counter stats for 'mpirun -np range ./best_efficient_code.py':
+
+           8921875      cycles:u                                                              
+          11571138      instructions:u                   #    1.30  insn per cycle            
+              9547      cache-misses:u                                                        
+
+       0.093499189 seconds time elapsed
+
+       0.004443000 seconds user
+       0.026571000 seconds sys
+
+
+[mpiexec@wee20.hpc.strath.ac.uk] i_np_fn (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec_params.h:942): process count should be > 0
+[mpiexec@wee20.hpc.strath.ac.uk] match_arg (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:83): match handler returned error
+[mpiexec@wee20.hpc.strath.ac.uk] HYD_arg_parse_array (../../../../../src/pm/i_hydra/libhydra/arg/hydra_arg.c:128): argument matching returned error
+[mpiexec@wee20.hpc.strath.ac.uk] mpiexec_get_parameters (../../../../../src/pm/i_hydra/mpiexec/mpiexec_params.c:1359): error parsing input array
+[mpiexec@wee20.hpc.strath.ac.uk] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:1783): error parsing parameters
+
+ Performance counter stats for 'mpirun -np range ./original_bad_code.py':
+
+           8735741      cycles:u                                                              
+          11566084      instructions:u                   #    1.32  insn per cycle            
+              3782      cache-misses:u                                                        
+
+       0.028099769 seconds time elapsed
+
+       0.004333000 seconds user
+       0.024841000 seconds sys
+
+
+
+===== Running with 1 MPI ranks =====
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+
+ Performance counter stats for 'mpirun -np 1 ./best_efficient_code.py':
+
+          18563485      cycles:u                                                              
+          25054646      instructions:u                   #    1.35  insn per cycle            
+             13732      cache-misses:u                                                        
+
+       0.073091108 seconds time elapsed
+
+       0.010153000 seconds user
+       0.047961000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 1 ./original_bad_code.py':
+
+      139226465968      cycles:u                                                              
+      412018248076      instructions:u                   #    2.96  insn per cycle            
+            149828      cache-misses:u                                                        
+
+      52.077074498 seconds time elapsed
+
+      51.745848000 seconds user
+       0.099122000 seconds sys
+
+
+
+===== Running with 2 MPI ranks =====
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+
+ Performance counter stats for 'mpirun -np 2 ./best_efficient_code.py':
+
+          19346256      cycles:u                                                              
+          25619593      instructions:u                   #    1.32  insn per cycle            
+             25214      cache-misses:u                                                        
+
+       0.071562998 seconds time elapsed
+
+       0.013820000 seconds user
+       0.045543000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 2 ./original_bad_code.py':
+
+     1212540892288      cycles:u                                                              
+     2817559511083      instructions:u                   #    2.32  insn per cycle            
+            289187      cache-misses:u                                                        
+
+     236.921981113 seconds time elapsed
+
+     459.013685000 seconds user
+      13.595993000 seconds sys
+
+
+
+===== Running with 4 MPI ranks =====
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[mpiexec@wee20.hpc.strath.ac.uk] wait_proxies_to_terminate (../../../../../src/pm/i_hydra/mpiexec/intel/i_mpiexec.c:558): downstream from host wee20 was killed by signal 9 (Killed)
+[mpiexec@wee20.hpc.strath.ac.uk] main (../../../../../src/pm/i_hydra/mpiexec/mpiexec.c:2165): assert (pg->intel.exitcodes != NULL) failed
+[mpiexec@wee20.hpc.strath.ac.uk] HYD_sock_write (../../../../../src/pm/i_hydra/libhydra/sock/hydra_sock_intel.c:362): write error (Bad file descriptor)
+
+ Performance counter stats for 'mpirun -np 4 ./best_efficient_code.py':
+
+          20135976      cycles:u                                                              
+          26455850      instructions:u                   #    1.31  insn per cycle            
+             25392      cache-misses:u                                                        
+
+       0.072400939 seconds time elapsed
+
+       0.014659000 seconds user
+       0.044767000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 4 ./original_bad_code.py':
+
+     3308216382135      cycles:u                                                              
+     8237880036660      instructions:u                   #    2.49  insn per cycle            
+            603157      cache-misses:u                                                        
+
+     333.471557791 seconds time elapsed
+
+    1267.078404000 seconds user
+      63.372847000 seconds sys
+
+
+
+===== Running with 8 MPI ranks =====
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+
+ Performance counter stats for 'mpirun -np 8 ./best_efficient_code.py':
+
+          22430171      cycles:u                                                              
+          29568078      instructions:u                   #    1.32  insn per cycle            
+             26549      cache-misses:u                                                        
+
+       0.076328705 seconds time elapsed
+
+       0.009918000 seconds user
+       0.055575000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 8 ./original_bad_code.py':
+
+     7696845692289      cycles:u                                                              
+    17908268920981      instructions:u                   #    2.33  insn per cycle            
+           1254734      cache-misses:u                                                        
+
+     389.681491126 seconds time elapsed
+
+    2954.802730000 seconds user
+     154.596465000 seconds sys
+
+
+
+===== Running with 16 MPI ranks =====
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+[proxy:0:0@wee20.hpc.strath.ac.uk] HYD_spawn (../../../../../src/pm/i_hydra/libhydra/spawn/intel/hydra_spawn.c:151): execvp error on file ./best_efficient_code.py (No such file or directory)
+
+ Performance counter stats for 'mpirun -np 16 ./best_efficient_code.py':
+
+          26780467      cycles:u                                                              
+          35156398      instructions:u                   #    1.31  insn per cycle            
+             27179      cache-misses:u                                                        
+
+       0.076243235 seconds time elapsed
+
+       0.023017000 seconds user
+       0.049781000 seconds sys
+
+
