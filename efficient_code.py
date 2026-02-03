@@ -29,7 +29,7 @@ min_jobs = N // nproc
 #intgerations (Ns) and distribute them to between the cores
 #good incase N value changes
 int_remain = N % nproc
-local_n = rank * min_jobs(1 if rank < int_remain else 0)
+local_n = min_jobs + (1 if rank < int_remain else 0)
 #ensures each MPI process indexes at the correct sampling point
 #so each is only sampled once and then stops at the correct place
 start = rank * min_jobs + min(rank, int_remain)
@@ -38,7 +38,7 @@ end = start + local_n
 #vectorised local integral
 i = np.arange(start, end, dtype=np.float64)
 x = (i + 0.5) * DELTA
-local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64)
+local_sum = np.sum(4.0 / (1.0 + x*x), dtype=np.float64) * DELTA
 #combines all the partial results in each rank using the SUM operation
 #and then returns this result only to rank 0
 I = comm.reduce(local_sum, op=MPI.SUM, root=0)
