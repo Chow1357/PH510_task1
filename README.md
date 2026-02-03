@@ -10,4 +10,5 @@
 
  the output of the ''run_code_mpi_only_best_efficient_diffcores.sh' job script is the output file 'both_code_diff_cores.out'. 
 
- the output for 'run_code_mpi_only_best_efficient_allcores.sh' is the output file ''
+ the output for 'run_code_mpi_only_best_efficient_allcores.sh' is the output file '' this is where you can find comparable numerical results for the code being run in parallel
+ and in serial. 
