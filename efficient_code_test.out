@@ -1,0 +1,15 @@
+Loading mpi version 2021.6.0
+integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 16 ./efficient_code.py':
+
+        8462504841      cycles:u                                                              
+        7483306274      instructions:u                   #    0.88  insn per cycle            
+         120571335      cache-misses:u                                                        
+
+       0.576982902 seconds time elapsed
+
+       3.739090000 seconds user
+       3.691578000 seconds sys
+
+

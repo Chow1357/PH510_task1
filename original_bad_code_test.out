@@ -1,0 +1,15 @@
+Loading mpi version 2021.6.0
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 16 ./original_bad_code.py':
+
+    17673174299954      cycles:u                                                              
+    42769930234350      instructions:u                   #    2.42  insn per cycle            
+         490147493      cache-misses:u                                                        
+
+     427.942926047 seconds time elapsed
+
+    6433.760390000 seconds user
+     373.288662000 seconds sys
+
+
