@@ -1,0 +1,151 @@
+Loading mpi version 2021.6.0
+===== Running with 1 MPI ranks =====
+integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 1 ./efficient_code.py':
+
+        1585922460      cycles:u                                                              
+        1757244680      instructions:u                   #    1.11  insn per cycle            
+          76454455      cache-misses:u                                                        
+
+       1.476160227 seconds time elapsed
+
+       0.736932000 seconds user
+       0.717102000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 1 ./original_bad_code.py':
+
+      140204018014      cycles:u                                                              
+      417118114407      instructions:u                   #    2.98  insn per cycle            
+            144364      cache-misses:u                                                        
+
+      52.345196394 seconds time elapsed
+
+      52.104648000 seconds user
+       0.099334000 seconds sys
+
+
+
+===== Running with 2 MPI ranks =====
+integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 2 ./efficient_code.py':
+
+        1935422528      cycles:u                                                              
+        2151155398      instructions:u                   #    1.11  insn per cycle            
+          78651552      cache-misses:u                                                        
+
+       0.910645074 seconds time elapsed
+
+       0.892727000 seconds user
+       0.833787000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 2 ./original_bad_code.py':
+
+     1222687114524      cycles:u                                                              
+     2839052048692      instructions:u                   #    2.32  insn per cycle            
+            285070      cache-misses:u                                                        
+
+     239.014054737 seconds time elapsed
+
+     462.669406000 seconds user
+      14.081769000 seconds sys
+
+
+
+===== Running with 4 MPI ranks =====
+integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 4 ./efficient_code.py':
+
+        2676087927      cycles:u                                                              
+        2935992301      instructions:u                   #    1.10  insn per cycle            
+          84929179      cache-misses:u                                                        
+
+       0.640704730 seconds time elapsed
+
+       1.201637000 seconds user
+       1.095677000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 4 ./original_bad_code.py':
+
+     3391382470617      cycles:u                                                              
+     8450777658522      instructions:u                   #    2.49  insn per cycle            
+            549828      cache-misses:u                                                        
+
+     341.985843319 seconds time elapsed
+
+    1298.873238000 seconds user
+      65.573599000 seconds sys
+
+
+
+===== Running with 8 MPI ranks =====
+integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 8 ./efficient_code.py':
+
+        4316973821      cycles:u                                                              
+        4395371699      instructions:u                   #    1.02  insn per cycle            
+          98510228      cache-misses:u                                                        
+
+       0.536988481 seconds time elapsed
+
+       1.909466000 seconds user
+       1.696550000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 8 ./original_bad_code.py':
+
+     7705851612739      cycles:u                                                              
+    17974549003299      instructions:u                   #    2.33  insn per cycle            
+           1325811      cache-misses:u                                                        
+
+     390.285735841 seconds time elapsed
+
+    2958.265196000 seconds user
+     155.883255000 seconds sys
+
+
+
+===== Running with 16 MPI ranks =====
+integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 16 ./efficient_code.py':
+
+        8501301263      cycles:u                                                              
+        7464230121      instructions:u                   #    0.88  insn per cycle            
+         120778388      cache-misses:u                                                        
+
+       0.559342138 seconds time elapsed
+
+       3.786250000 seconds user
+       3.676712000 seconds sys
+
+
+Integral 3.1415926536
+
+ Performance counter stats for 'mpirun -np 16 ./original_bad_code.py':
+
+    17512595367524      cycles:u                                                              
+    42250062288480      instructions:u                   #    2.41  insn per cycle            
+           3478470      cache-misses:u                                                        
+
+     447.408287528 seconds time elapsed
+
+    6747.405437000 seconds user
+     384.927198000 seconds sys
+
+
+
