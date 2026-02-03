@@ -25,11 +25,11 @@
 module load mpi 
 
 # Modify the line below to run your program  python3 Task1-code.py
-for i in range 1 2 4 8 16
+for i in 1 2 4 8 16
 do
     echo "===== Running with $i MPI ranks ====="
     
-    perf stat -e cycles,instructions,cache-misses mpirun -np $i ./best_efficient_code.py
+    perf stat -e cycles,instructions,cache-misses mpirun -np $i ./efficient_code.py
     perf stat -e cycles,instructions,cache-misses mpirun -np $i ./original_bad_code.py
     
     echo 

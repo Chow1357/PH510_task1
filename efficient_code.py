@@ -25,7 +25,7 @@ DELTA = 1.0 / N
 #sharing the workload, number of integration points,
 #equally between the cores (nproc = 16)
 min_jobs = N // nproc
-#if N cannot be divided by nproc evenly we must deal witht he remaining
+#if N cannot be divided by nproc evenly we must deal with the remaining
 #intgerations (Ns) and distribute them to between the cores
 #good incase N value changes
 int_remain = N % nproc

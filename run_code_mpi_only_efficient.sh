@@ -25,6 +25,6 @@
 module load mpi 
 
 # Modify the line below to run your program  python3 Task1-code.py
-perf stat -e cycles,instructions,cache-misses mpirun -np 16 ./efficient_code_test.py
+perf stat -e cycles,instructions,cache-misses mpirun -np 16 ./efficient_code.py
 
 
