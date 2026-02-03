@@ -1,13 +1,13 @@
 # PH510_task1
 # the code, job scripts and output files in this repository were all used in assignment 1 based on approximating pi from a definite integral. it uses mpi4py.
-# the code in this repository was run tested using python 3.10.9 with mpi4py and OpenMPI.
+ the code in this repository was run tested using python 3.10.9 with mpi4py and OpenMPI.
 
-# the original code is in the .py file 'original_bad_code.py' this was run in the job script 'run_code_mpi_only_original_code.sh' and the output is 'original_bad_code_test.out'
+ the original code is in the .py file 'original_bad_code.py' this was run in the job script 'run_code_mpi_only_original_code.sh' and the output is 'original_bad_code_test.out'
 
-# the improved efficient code where all the main improvements were made is in the .py file 'efficient_code.py' this was run in job script 'run_code_mpi_only_efficient.sh' and the output is in the output file 'efficient_code_test.out' 
+ the improved efficient code where all the main improvements were made is in the .py file 'efficient_code.py' this was run in job script 'run_code_mpi_only_efficient.sh' and the output is in the output file 'efficient_code_test.out' 
 
-# both codes were then run for different numbers of cores in the job scripts 'run_code_mpi_only_best_efficient_diffcores.sh' and 'run_code_mpi_only_best_efficient_allcores.sh' for cores (1,2,4,8,16) and (1,2,....,16) respectivley. 
+ both codes were then run for different numbers of cores in the job scripts 'run_code_mpi_only_best_efficient_diffcores.sh' and 'run_code_mpi_only_best_efficient_allcores.sh' for cores (1,2,4,8,16) and (1,2,....,16) respectivley. 
 
-# the output of the ''run_code_mpi_only_best_efficient_diffcores.sh' job script is the output file 'both_code_diff_cores.out'. 
+ the output of the ''run_code_mpi_only_best_efficient_diffcores.sh' job script is the output file 'both_code_diff_cores.out'. 
 
-# the output for 'run_code_mpi_only_best_efficient_allcores.sh' is the output file ''
+ the output for 'run_code_mpi_only_best_efficient_allcores.sh' is the output file ''
