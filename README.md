@@ -1,6 +1,8 @@
 # PH510_task1
-# the code, job scripts and output files in this repository were all used in assignment 1 based on approximating pi from a definite integral. it uses mpi4py.
+# the code, job scripts and output files in this repository were all used in assignment 1 which was based on approximating pi from a definite integral. it uses mpi4py.
  the code in this repository was run tested using python 3.10.9 with mpi4py and OpenMPI.
+
+ the LICENSE file contains a suitable MIT License for this code. 
 
  the original code is in the .py file 'original_bad_code.py' this was run in the job script 'run_code_mpi_only_original_code.sh' and the output is 'original_bad_code_test.out'
 
