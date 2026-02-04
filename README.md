@@ -12,3 +12,9 @@
 
  the output for 'run_code_mpi_only_best_efficient_allcores.sh' is the output file '' this is where you can find comparable numerical results for the code being run in parallel
  and in serial. 
+
+there are two extra job scripts that can be useful. 
+'run_code_mpi_only_best_efficient_allcores.sh' runs the efficient code and the original code on rank numbers (1,2,3,4...,16) run after run after run. 
+
+'run_code_only_efficient_allcores.sh' runs only the efficient code on all the different number of cores run after run after run, with a warm up at the start incase mpi module needs a warm up run to not affect the recorded runs. 
+
