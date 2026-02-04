@@ -1,5 +1,8 @@
 # PH510_task1
 # the code, job scripts and output files in this repository were all used in assignment 1 which was based on approximating pi from a definite integral. it uses mpi4py.
+
+# when testing the efficient code for different numbers of cores I would suggest using 'run_code_only_efficient_allcores.sh' as it contains a warm up before measuring time to let MPI load. This was not an issue when the code was first run but has started happening unless a warm up or some preventative measure is implemented. 
+
  the code in this repository was run tested using python 3.10.9 with mpi4py and OpenMPI.
 
  the LICENSE file contains a suitable MIT License for this code. 
@@ -19,5 +22,5 @@ there are two extra job scripts that can be useful.
 
 'run_code_mpi_only_best_efficient_allcores.sh' runs the efficient code and the original code on rank numbers (1,2,3,4...,16) run after run after run. 
 
-'run_code_only_efficient_allcores.sh' runs only the efficient code on all the different number of cores run after run after run, with a warm up at the start incase mpi module needs a warm up run to not affect the recorded runs. 
+'run_code_only_efficient_allcores.sh' runs only the efficient code on all the different number of cores run after run after run, with a warm up at the start incase mpi module needs a warm up run to not affect the recorded runs.
 
