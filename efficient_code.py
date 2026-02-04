@@ -27,7 +27,7 @@ DELTA = 1.0 / N
 min_jobs = N // nproc
 #if N cannot be divided by nproc evenly we must deal with the remaining
 #intgerations (Ns) and distribute them to between the cores
-#good incase N value changes
+#good incase nproc or N value changes
 int_remain = N % nproc
 local_n = min_jobs + (1 if rank < int_remain else 0)
 #ensures each MPI process indexes at the correct sampling point
