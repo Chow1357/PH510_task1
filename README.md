@@ -3,7 +3,7 @@
 
 # when testing the efficient code for different numbers of cores I would suggest using 'run_code_only_efficient_allcores.sh' as it contains a warm up before measuring time to let MPI load. This was not an issue when the code was first run but has started happening unless a warm up or some preventative measure is implemented. 
 
- the code in this repository was run tested using python 3.10.9 with mpi4py and OpenMPI.
+ the code in this repository was tested using python 3.10.9 with mpi4py and OpenMPI.
 
  the LICENSE file contains a suitable MIT License for this code. 
 
