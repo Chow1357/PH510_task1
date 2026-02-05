@@ -31,7 +31,7 @@ for i in 1 2 4 8 16
 do
     echo "===== Running with $i MPI ranks ====="
     
-    perf stat -e cycles,instructions,cache-misses mpirun -np $i ./efficient_code_test.py
+    perf stat -e cycles,instructions,cache-misses mpirun -np $i ./efficient_code_forloop.py
     perf stat -e cycles,instructions,cache-misses mpirun -np $i ./original_bad_code.py
     
     echo 
