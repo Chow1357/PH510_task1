@@ -19,4 +19,9 @@ nproc = comm.Get_size()
 #delta is thw idth of each integral sample point
 N = 100000000
 DELTA = 1.0 / N
-#defining the integral
+#defining the integral for the approximation of pi 
+def integrand(x):
+    """returns the integrand function  for the pi integral"""
+    return 4.0 / (1 + x*x)
+
+LOCAL_SUM = 0.0
