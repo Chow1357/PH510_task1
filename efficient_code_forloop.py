@@ -25,3 +25,11 @@ def integrand(x):
     return 4.0 / (1 + x*x)
 
 LOCAL_SUM = 0.0
+# Each rank does i = rank, rank+nproc, rank+2*nproc,...
+# Strided work distribution:
+# This ensures all integration points are covered exactly once with
+# minimal communication and good load balancing.
+# xi this is our midpoint rule and samples at the centre of each interval
+for i in range(rank, N, nproc):
+    xi = (i + 0.5) * DELTA
+    LOCAL_SUM += integrand(xi) * DELTA
