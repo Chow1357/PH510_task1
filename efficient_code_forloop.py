@@ -7,3 +7,11 @@ Tested with:
     mpi4py 
     OpenMPI
 """
+#import mpi4py 
+from mpi4py import MPI 
+#defining the global communicator containing MPI processes
+#rank defines the process's ID 
+#nproc is the total number of processes launched which in this case is 16 
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+nproc = comm.Get_size()
