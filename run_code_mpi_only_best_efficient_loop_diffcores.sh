@@ -1,0 +1,40 @@
+#!/bin/bash
+
+# Propagate environment variables to the compute node
+#SBATCH --export=ALL
+
+# Run in the standard partition (queue)
+#SBATCH --partition=teaching
+
+# Distribute processes in round-robin fashion
+#SBATCH --distribution=block:block
+
+# No of cores required (max. of 16, 4GB RAM per core)
+#SBATCH --ntasks=16 
+
+# Runtime (hard, HH:MM:SS)
+#SBATCH --time=24:00:00
+
+# Job name
+#SBATCH --job-name=integral 
+
+# Output file
+#SBATCH --output=slurm-%j.out
+
+# choose which version to load
+module load mpi 
+
+# Modify the line below to run your program  python3 Task1-code.py
+mpirun -np 16 python ./efficient_code_test.py >/dev/null
+
+for i in 1 2 4 8 16
+do
+    echo "===== Running with $i MPI ranks ====="
+    
+    perf stat -e cycles,instructions,cache-misses mpirun -np $i ./efficient_code_test.py
+    perf stat -e cycles,instructions,cache-misses mpirun -np $i ./original_bad_code.py
+    
+    echo 
+done
+
+
