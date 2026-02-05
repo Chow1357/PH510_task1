@@ -33,3 +33,8 @@ LOCAL_SUM = 0.0
 for i in range(rank, N, nproc):
     xi = (i + 0.5) * DELTA
     LOCAL_SUM += integrand(xi) * DELTA
+# Combine once all the ranks and returns the result only to rank 0 
+I = comm.reduce(LOCAL_SUM, op=MPI.SUM, root=0)
+#prints the result contained in rank 0 once
+if rank == 0:
+    print(f"Integral {I:.10f}")
