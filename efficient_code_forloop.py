@@ -2,24 +2,24 @@
 """
 Parallel approximation of pi using MPI and the mid-point rule
 
-Tested with: 
+Tested with:
     Python 3.10.9
-    mpi4py 
+    mpi4py
     OpenMPI
 """
-#import mpi4py 
-from mpi4py import MPI 
+#import mpi4py
+from mpi4py import MPI # pylint: disable=no-name-in-module
 #defining the global communicator containing MPI processes
-#rank defines the process's ID 
-#nproc is the total number of processes launched which in this case is 16 
+#rank defines the process's ID
+#nproc is the total number of processes launched which in this case is 16
 comm = MPI.COMM_WORLD
 rank = comm.Get_rank()
 nproc = comm.Get_size()
 #N is the number of integral samples
-#delta is thw idth of each integral sample point
+#delta is the width of each integral sample point
 N = 100000000
 DELTA = 1.0 / N
-#defining the integral for the approximation of pi 
+#defining the integral for the approximation of pi
 def integrand(x):
     """returns the integrand function  for the pi integral"""
     return 4.0 / (1 + x*x)
@@ -33,7 +33,7 @@ LOCAL_SUM = 0.0
 for i in range(rank, N, nproc):
     xi = (i + 0.5) * DELTA
     LOCAL_SUM += integrand(xi) * DELTA
-# Combine once all the ranks and returns the result only to rank 0 
+# Combine once all the ranks and returns the result only to rank 0
 I = comm.reduce(LOCAL_SUM, op=MPI.SUM, root=0)
 #prints the result contained in rank 0 once
 if rank == 0:
